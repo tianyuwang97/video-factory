@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f5f7fc"><title>稍微一等 · 视频工厂</title>
+<link rel="icon" type="image/png" sizes="32x32" href="/brand/factory-icon-32-v1.png"><link rel="apple-touch-icon" sizes="180x180" href="/brand/factory-icon-180-v1.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar"><a class="brand" href="/" target="_top" aria-label="稍微一等视频工厂首页"><img class="brand-logo" src="/brand/factory-logo-128-v1.webp" width="64" height="64" alt="" fetchpriority="high"><span>稍微一等<small>VIDEO FACTORY</small></span></a><nav aria-label="工作台"><span class="nav-current">制作工作台</span><button id="guide-button" class="text-button">使用说明</button></nav><div class="connection"><span id="connection-dot" class="dot"></span><span id="connection-label">正在连接云端项目</span></div></header>
+<main>
+<section class="workspace-heading"><div><div class="eyebrow">让好想法，走到成片</div><h1>视频工厂<span class="heading-dot">.</span></h1><p>一座小工厂，看清每一步。</p></div><div class="project-picker"><label for="project-select">当前项目</label><div class="picker-row"><select id="project-select" aria-label="当前视频项目"><option value="">正在读取项目…</option></select><button id="refresh-button" class="icon-button" aria-label="刷新项目状态">↻</button></div><span id="sync-time">正在读取制作记录…</span></div></section>
+<div class="workspace-grid">
+<section class="map-panel" aria-label="可交互的视频工作流园区">
+<div class="map-toolbar"><div class="view-tabs" role="group" aria-label="查看方式"><button id="map-view" aria-pressed="true">工厂地图</button><button id="list-view" aria-pressed="false">步骤清单</button></div><div class="map-actions"><button id="motion-button" class="text-button" aria-pressed="false">暂停动画</button><button id="demo-button" class="demo-button">▷ 流程演示</button></div></div>
+<div id="demo-banner" class="demo-banner" hidden><span>演示模式 · 动画不代表实际制作进度</span><button id="exit-demo">回到真实项目</button></div>
+<div id="map-scroll" class="map-scroll"><div id="world" class="world"><svg id="factory-map" viewBox="0 0 1240 820" role="img" aria-labelledby="map-title map-description"><title id="map-title">视频制作工厂地图</title><desc id="map-description">八栋立体工厂分别代表从选题到交付的八个制作步骤。使用鼠标悬浮、键盘聚焦或点击工厂查看详细流程。</desc></svg><div id="factory-labels" class="factory-labels"></div></div></div>
+<div id="step-list" class="step-list" hidden></div>
+<footer class="map-footer"><span class="hint"><span class="mouse-symbol">⌖</span> 悬浮查看流程 · 点击固定详情</span><div class="legend"><span><i class="legend-dot done"></i>已完成</span><span><i class="legend-dot running"></i>进行中</span><span><i class="legend-dot pending"></i>未开始</span></div></footer>
+</section>
+<aside class="project-rail">
+<section class="project-card"><div class="section-kicker">项目进度 <span id="project-state" class="status-pill">读取中</span></div><h2 id="project-title">粉丝数量是另一种货币</h2><div class="project-subtitle" id="project-subtitle">卡通换角 · 横竖双版</div><div class="progress-summary"><strong id="overall-count">—<small> / 8</small></strong><span>个制作步骤已完成</span></div><div class="overall-track" role="progressbar" aria-label="项目完成进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div id="overall-bar"></div></div><div id="current-stage" class="current-stage">正在读取当前环节…</div><dl class="metrics"><div><dt>分镜</dt><dd id="shots-count">—</dd></div><div><dt>人物动画</dt><dd id="clips-count">—</dd></div><div><dt>成片</dt><dd id="exports-count">—</dd></div></dl></section>
+<section class="delivery-card"><div class="section-kicker">成片出口 <span class="tiny-label">DELIVERY</span></div><div class="delivery-preview"><img id="cover-preview" alt="当前视频项目封面" hidden><div class="preview-shade"></div><span class="preview-tag">稍微一等</span><strong>让想法<br>真正被看见。</strong><span class="duration-tag" id="duration-tag">约 3 分钟</span></div><div class="delivery-actions"><button id="vertical-preview" disabled>预览竖版 <span>9:16</span></button><button id="landscape-preview" disabled>预览横版 <span>16:9</span></button></div></section>
+<section class="activity-card"><div class="section-kicker">最近进展</div><ol id="activity-list"><li>正在读取项目记录</li></ol></section>
+</aside>
+</div>
+<div class="bottom-note"><a class="footer-brand" href="/" target="_top"><img src="/brand/factory-logo-128-v1.webp" width="32" height="32" alt="">关注小等，多想一层。</a><span>每 5 秒刷新云端记录 · 制作电脑在线时自动同步</span></div>
+</main>
+<section id="factory-detail" class="factory-detail" aria-label="步骤详情" hidden><header><div><span id="detail-number" class="detail-number"></span><span id="detail-status" class="status-pill"></span></div><button id="close-detail" class="close-button" aria-label="关闭步骤详情">×</button></header><h2 id="detail-title"></h2><p id="detail-description"></p><div class="detail-progress"><span id="detail-evidence"></span><strong id="detail-percent"></strong></div><div class="detail-track"><div id="detail-bar"></div></div><h3>这一步怎么做</h3><ol id="detail-steps"></ol><div id="detail-tools" class="detail-tools"></div><div id="detail-artifacts" class="detail-artifacts"></div><div id="detail-pin-hint" class="pin-hint">点击工厂，可固定这张流程卡</div></section>
+<dialog id="media-dialog"><header><h2 id="media-title">成片预览</h2><button id="close-media" class="close-button" aria-label="关闭预览">×</button></header><div id="media-content"></div></dialog>
+<dialog id="guide-dialog"><header><h2 class="guide-brand"><img src="/brand/factory-logo-128-v1.webp" width="42" height="42" alt="">这座工厂，怎么用？</h2><button id="close-guide" class="close-button" aria-label="关闭使用说明">×</button></header><div class="guide-content"><p><strong>悬浮看流程</strong><br>将鼠标放在工厂或步骤标签上，展开该步骤的具体流程、进度和产物。</p><p><strong>点击固定详情</strong><br>点击后卡片保持打开，可以查看产物；再点关闭按钮或按 Esc 收起。手机上直接点工厂即可。</p><p><strong>真实项目与演示分开</strong><br>制作电脑在线时自动上传项目状态；离线时保留最近记录，并显示同步时间。流程演示只用于展示工厂如何依次运转，不改变项目状态。</p><p><strong>接入下一条视频</strong><br>为新项目登记工作目录并写入各步骤状态后，网页会自动刷新进度。未接入的任务不会被当成正在制作。</p></div></dialog>
+<div id="toast" class="toast" role="status" hidden></div>
+<script src="equipment.js"></script><script src="app.js"></script>
+</body></html>

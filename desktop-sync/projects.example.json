@@ -1,0 +1,12 @@
+{
+  "projects": [
+    {
+      "id": "example",
+      "title": "示例视频",
+      "subtitle": "横竖双版",
+      "work": "D:/Videos/example/work",
+      "outputs": "D:/Videos/example/outputs",
+      "adapter": "manual"
+    }
+  ]
+}

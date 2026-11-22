@@ -1,0 +1,5 @@
+projects.json
+sync-cache.json
+sync-status.json
+*.log
+__pycache__/
